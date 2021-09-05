@@ -1,0 +1,36 @@
+Data visualization: R
+Database building: ...
+Solving problems: algorithm.
+Road data
+
+column: road no.
+
+row: height.
+
+objective:
+given road data,
+- show which roads are in risk of flooding:
+	if adjacent_node< threshold_value
+tree,node
+
+ways of labeling the roads:
+technique 1:
+1a 1b 1c
+2a 2b 2c
+3a 3b 3c
+update: 1a_east, 2b_west.
+
+technique 2:
+
+With respect to a center(e.g. waterbodies)
+
+technique 3:
+xxxxxxxxxxxxxxxxxxxxxxxx
+
+technique requirement:
+Numbering, coordinating system where all address are related to each other matchematically.
+
+
+New rule: কিছু দূর পরপর রাস্তার উচ্চতা পরিবর্তনশীল।
+
+
