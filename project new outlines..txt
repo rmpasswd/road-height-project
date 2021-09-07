@@ -1,0 +1,48 @@
+mahin: http://datalibrary.bmd.gov.bd/ rain data
+
+urbi: river level.  www.hydrology.bwdb.gov.bd https://www.bwdb.gov.bd/ 
+
+shondhi: river level http://geo.iwmbd.com:4003/ http://www.ffwc.gov.bd/ 
+
+
+area height?
+
+-- rain data done!
+
+-- area height data ?
+-- river data
+
+
+
+findings:
+
+lged gis map:
+	roads, waterbodies etc. but no height information. We need height of an area.
+
+weather division http://datalibrary.bmd.gov.bd/
+	found data but manual work required .....
+
+ffwc flood forcasting and warning center:
+	danger level report of rivers with dates and durations
+
+
+http://geo.iwmbd.com/
+http://www.hydrology.bwdb.gov.bd/
+http://live3.bmd.gov.bd/
+
+1980 - 2020 data given,
+
+in the year 2020:
+10Sept 30mm
+11     33mm
+12     27mm
+
+in these 3 day, Turag height > 20 meter is danger level.
+
+what will happen this year?
+we learnt that past 10 year danger level.
+this year also danger level.
+Jun,july,august rain data '2021
+decision: danger level.
+
+
