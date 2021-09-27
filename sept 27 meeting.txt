@@ -1,0 +1,30 @@
+
+Date, Water Level, Rainfall, LandElevation, Floodornot
+
+
+1mm of rain = 1Litre within 1 sq.feet area.
+
+- kurigram border 25°23' - 26°14' lats and 89°27' - 89°54' east longitudes
+- find the lat and long.
+- find elevation?what's the threshold of flooding?
+
+- increase in waterlevel due to rainfall. how much?
+
+- label the data as floodornot.
+
+
+
+
+
+
+
+
+
+model.fit(X_train, Y_train)
+# save the model to disk
+filename = 'finalized_model.sav'
+pickle.dump(model, open(filename, 'wb'))
+ 
+# load the model from disk
+loaded_model = pickle.load(open(filename, 'rb'))
+result = loaded_model.score(X_test, Y_test)
