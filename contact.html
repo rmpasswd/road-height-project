@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cstyles.css">
+    <title>contact us</title>
+</head>
+<body>
+    <header>
+        <a href="index.html">Prediction of Flooding</a>
+    </header>
+    <div class="contact-in">
+        <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d29185.62175547186!2d90.24826505546069!3d23.882429214399693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755e998af65bee5%3A0x51e41cefc20b8fa8!2sJahangirnagar%20University%2C%20Savar%20Union!5e0!3m2!1sen!2sbd!4v1648829972383!5m2!1sen!2sbd" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="contact-form">
+            <h1>Contact Us</h1>
+            <form action="mailto:silviasandhi@gmail.com">
+                <input type="text" id="name" placeholder="Name" required="required" class="contact-form-txt"/>
+                <input type="text" id="email" placeholder="Email" required="required" class="contact-form-txt"/>
+                <textarea id="message" placeholder="Message" required="required" class="contact-form-txtarea"></textarea>
+                <input type="submit" name="Submit" class="contact-form-btn"/>
+
+            </form>
+        </div>
+    </div>
+    <!--<script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script>
+        function sendEmail(){
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "",
+                Password : "",
+                To : '',
+                From : document.getElementById("email").value,
+                Subject : "New Contact",
+                Body : "Name: " + document.getElementById("name").value +"<br> Email: " + document.getElementById("email").value + "<br> Message: " + document.getElementById("message").value
+            }).then(
+            message => alert(message)
+            );
+            }
+    </script>-->
+</body>
+</html>
