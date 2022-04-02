@@ -2,8 +2,8 @@ import numpy as np
 from flask import Flask 
 from flask import request, render_template
 from sklearn.preprocessing import scale                                                          
-
-import pickle
+from datetime import date
+import pickle,sys
 
 
 app= Flask(__name__)
@@ -18,12 +18,16 @@ def homepage():
 @app.route('/predict',methods=['POST','GET'])
 def predict():
 
-	int_features = [int(request.form['day']), \
-		float(request.form['waterlevel']), float(request.form['rainfall'])]
+	datesplit=request.form['date'].split("-")
+	
+	datercvd = date(int(datesplit[0]), int(datesplit[1]), int(datesplit[2]))
+	daycount = int(datercvd.strftime('%j'))
+	int_features = [ daycount, \
+		float(request.form['waterlevel']), float(request.form['rainfall'])] 
 	print(int_features)
 	final_features = np.array(int_features+\
 		[int_features[0]*int_features[1],int_features[0]*int_features[2],int_features[1]*int_features[2]])
-
+	
 	final_features_scaled= scale(final_features)
 	prediction = model.predict([final_features_scaled])
 	print(final_features_scaled)

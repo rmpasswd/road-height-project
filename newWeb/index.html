@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-     rel="stylesheet"
-     href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
-    />
+    
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
+    
     <title>Weather</title>
 </head>
 <body>
@@ -37,7 +37,7 @@
             </div>
             <form>
                 <input type="text" id="rf" placeholder="Rainfall" required="required" class="contact-form-txt"/>
-                <input type="text" id="date" placeholder="Date" required="required" class="contact-form-txt"/>
+                <input type="date" id="date" placeholder="Date" required="required" class="contact-form-txt"/>
                 <input type="text" id="wl" placeholder="Waterlevel" required="required" class="contact-form-txt"/>
                 <input type="submit" name="Submit" class="contact-form-btn"/>
             </form>

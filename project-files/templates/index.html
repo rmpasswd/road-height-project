@@ -1,52 +1,121 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Flood Predictor</title>
- <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+     rel="stylesheet"
+     href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" integrity="sha256-46qynGAkLSFpVbEBog43gvNhfrOj+BmwXdxFgVK/Kvc=" crossorigin="anonymous" />
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
+    <link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+    <title>Weather</title>
 </head>
-
 <body>
-<nav class="navbar navbar-expand-sm bg-primary navbar-light">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="nav-link" href="index.html">Flood Predictor</a>
-    </li>
+    <section>
+        <div class="circle"></div>
+        <header>
+            <a href="#">Prediction of Flooding</a>
+            <div class="toggle" onclick="togglrMenu()"></div>
+            <ul class="navigation">
+                <li><a href="#">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content" id="content">
+            <div class="textbox">
+                <h2>Will it flood today?</h2>
+                <p>This project will use machine learning to predict flood in any area based on rainfall and nearby river level data.</p>
+                <p>Please enter data to see prediction of flooding.</p>
+            </div>
 
-  </ul>
-</nav>
+            <form action="/predict"method="POST">
+                <input type="text" id="rf" name="rainfall" placeholder="Rainfall" required="required" class="contact-form-txt"/>
+                <input type="date" id="date" name="date" placeholder="Date" required="required" class="contact-form-txt"/>
+                <input type="text" id="wl" name="waterlevel" placeholder="Waterlevel" required="required" class="contact-form-txt"/>
+                <input type="submit" name="Submit" class="contact-form-btn"/>
+            </form>
+            
+            <div clas="result">
+                <h2>Forecast: </h2>
+                {{ prediction_text }}
+                
+            </div>
+
+        </div>
+        <!--<div class="imgBox">
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img src="cocacola1.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="cocacola2.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="cocacola3.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="cocacola4.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="cocacola5.png" />
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="cocacola6.png" />
+                  </div>
+                </div>
+            </div>
+        </div>-->
 
 
-  <br>
-   <br>
-   <form action="/predict"method="post"> 
 
-       <input type="text" min="0" name='day' placeholder="Day of September(1 to 30) " required="required" autofocus />
-      <input type="text" min="0" name="waterlevel" placeholder="WaterLevel" required="required" />
 
-        <input type="text" min="0" name="rainfall" placeholder="Rainfall in mm" required="required" />
-<br>
-       <br>
-      <button type="submit" class="btn btn-success btn-block btn-large">Predict</button>
+        <ul class="sci" id="contact">
+            <li><a href="mailto:silviasandhi@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+            <li><a href="https://api.whatsapp.com/send?phone=+8801743594168"><i class="fa fa-whatsapp"></i></a></li>
+            <li><a href="tel:+8801743594168"><i class="fa fa-phone"></i></a></li>
+        </ul>
+    </section>
 
-   </form>
-       <br>
-   <br>
-   {{ prediction_text }}
 
-</div>
 
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+          loop: true,
+        });
+
+        function togglrMenu(){
+            const menuToggle = document.querySelector('.toggle');
+            const navigation = document.querySelector('.navigation')
+            menuToggle.classList.toggle('active')
+            navigation.classList.toggle('active')
+        }
+      </script>
 </body>
 </html>
