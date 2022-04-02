@@ -1,12 +1,12 @@
 import numpy as np
-from flask import Flask as fl
+from flask import Flask 
 from flask import request, render_template
 from sklearn.preprocessing import scale                                                          
 
 import pickle
 
 
-app= fl(__name__)
+app= Flask(__name__)
 model= pickle.load(open('./model.pkl','rb'))
 
 
@@ -34,3 +34,7 @@ def predict():
 
 	else:
 		return render_template('index.html', prediction_text=f"No chance of flooding on Day {int_features[0]}, WaterLevel {int_features[1]} , Rainfall {int_features[2]}")
+
+if __name__ == '_main_':
+	app.debug = True
+	app.run(host = "1.2.3.4", port = 5000)

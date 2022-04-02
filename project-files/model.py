@@ -51,7 +51,7 @@ def add_interactions(X):
 	return X_int  # feature engineering. Adding more features!
 
 
-data = pd.read_csv("./flood_data.csv")
+data = pd.read_csv("./flood_data_new.csv")
 
 # correl= data.corr()		# showing correlations betweent the columns
 # plt.subplots(figsize= (15,15))
@@ -77,7 +77,7 @@ x_test_more  = add_interactions(Xtest)
 
 Xtrainscaled= scale(x_train_more)		
 Xtestscaled= scale(x_test_more)  
-
+# print(Xtrainscaled, Xtestscaled)
 #removing NaN type data:
 
 while np.isnan(Xtrainscaled).sum():
@@ -93,7 +93,7 @@ while np.isnan(Xtestscaled).sum():
 			print("breaking")
 			break
 
-
+print("ytrain:\n", ytrain)
 #building the baseline model on logistic regression
 
 print("Baseline model with LogisticRegression: ")
