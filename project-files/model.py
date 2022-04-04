@@ -53,7 +53,7 @@ def add_interactions(X):
 
 data = pd.read_csv("./flood_data_new.csv")
 
-# correl= data.corr()		# showing correlations betweent the columns
+# correl= data.corr()		# showing correlations between the columns
 # plt.subplots(figsize= (15,15))
 # sns.heatmap(correl, annot= True)
 # plt.show()
@@ -63,11 +63,13 @@ data = pd.read_csv("./flood_data_new.csv")
 #removing the date column
 
 data.drop('Date', axis= 1, inplace= True)
+data.drop('Day', axis= 1, inplace= True)
 
 X= data.drop("Floodornot", axis=1)
 y= data["Floodornot"]
 
 # split the data to test n train
+data = data.reset_index()
 
 Xtrain, Xtest, ytrain, ytest= train_test_split(X,y)
 
@@ -78,20 +80,24 @@ x_test_more  = add_interactions(Xtest)
 Xtrainscaled= scale(x_train_more)		
 Xtestscaled= scale(x_test_more)  
 # print(Xtrainscaled, Xtestscaled)
+
 #removing NaN type data:
 
 while np.isnan(Xtrainscaled).sum():
 	for i in range(len(Xtrainscaled)):
 		if np.isnan(Xtrainscaled[i].sum()):
 			Xtrainscaled= np.delete(Xtrainscaled,i,0)
-			print("breaking")
+			print("trainbreaking")
 			break
 while np.isnan(Xtestscaled).sum():
 	for i in range(len(Xtestscaled)):
 		if np.isnan(Xtestscaled[i].sum()):
 			Xtestscaled= np.delete(Xtestscaled,i,0)
-			print("breaking")
+			print("testbreaking")
 			break
+print(np.any(np.isnan(Xtrainscaled)))
+print(np.all(np.isfinite(Xtrainscaled)))
+data = data.reset_index()
 
 print("ytrain:\n", ytrain)
 #building the baseline model on logistic regression

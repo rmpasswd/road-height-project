@@ -13,23 +13,26 @@ model= pickle.load(open('./model.pkl','rb'))
 
 @app.route('/')
 def homepage():
-	return render_template('./index.html')
+	return render_template('./index.html')	#when user go to homescreen
 
-@app.route('/predict',methods=['POST','GET'])
+@app.route('/predict',methods=['POST','GET'])	# the form inputs can be accessed by dictionary named request.forms['']
 def predict():
 
-	datesplit=request.form['date'].split("-")
+	datesplit=request.form['date'].split("-")	
 	
-	datercvd = date(int(datesplit[0]), int(datesplit[1]), int(datesplit[2]))
+	datercvd = date(int(datesplit[0]), int(datesplit[1]), int(datesplit[2])) # we have to take the date(2022-03-31) and make a day
 	daycount = int(datercvd.strftime('%j'))
+	
 	int_features = [ daycount, \
-		float(request.form['waterlevel']), float(request.form['rainfall'])] 
+		float(request.form['waterlevel']), float(request.form['rainfall'])] # int_features array will contain the 3 inputs
 	print(int_features)
+
 	final_features = np.array(int_features+\
-		[int_features[0]*int_features[1],int_features[0]*int_features[2],int_features[1]*int_features[2]])
+		[int_features[0]*int_features[1],int_features[0]*int_features[2],int_features[1]*int_features[2]])	# converted to a numpy array
 	
 	final_features_scaled= scale(final_features)
-	prediction = model.predict([final_features_scaled])
+	prediction = model.predict([final_features_scaled]) # passed to the model file.
+	
 	print(final_features_scaled)
 	print("prediction value: ",prediction)
 
